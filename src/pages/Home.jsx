@@ -12,9 +12,7 @@ const Home = () => {
     const [searchQuery, setSearchQuery] = useState("");
 
     useEffect(() => {
-        const interval = setInterval(fetchCryptoData, 30000);
-        
-        return () => clearInterval(interval);
+        fetchCryptoData();
     }, []);
 
     const filteredList = useMemo(() => {
@@ -79,7 +77,7 @@ const Home = () => {
                 </div>
             )}
             <footer className="footer">
-                <p>Data provided by CoinGecko API • Updated every 30 seconds</p>
+                <p>Data provided by CoinGecko API</p>
             </footer>
         </div>
     );
