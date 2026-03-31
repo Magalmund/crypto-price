@@ -24,7 +24,7 @@ export const filterAndSort = (array, sortBy, searchQuery) => {
             case "change":
                 return a.price_change_percentage_24h - b.price_change_percentage_24h;
             case "market_cap":
-                return a.market_cap_change_percentage_24h - b.market_cap_change_percentage_24h;
+                return a.market_cap - b.market_cap;
             default:
                 return a.market_cap_rank - b.market_cap_rank;
         }

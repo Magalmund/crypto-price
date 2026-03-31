@@ -1,90 +1,26 @@
-import React, {useEffect, useState} from 'react';
-import {useNavigate, useParams} from "react-router";
-import {fetchChart, fetchCoin} from "../API/coinGecko.js";
+import React, {lazy, Suspense} from 'react';
+import {useParams} from "react-router";
 import {formatMarketCap, formatPrice} from "../utils/formatter.js";
-import {CartesianGrid, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis} from "recharts";
+import {useFetchCoin} from "../hooks/useFetchCoin.js";
+import Loader from "../components/UI/Loader.jsx";
+import ErrorMessage from "../components/UI/ErrorMessage.jsx";
+
+const CoinPriceChart = lazy(() => import("../components/CoinPriceChart.jsx"));
 
 const CoinDetail = () => {
-    const [coin, setCoin] = useState(null);
-    const [isLoading, setIsLoading] = useState(true);
-    const [chartData, setChartData] = useState([]);
-
     const {id} = useParams();
-    let navigate = useNavigate();
+    const {coin, isLoading, error} = useFetchCoin(id);
 
-    useEffect(() => {
-        fetchCoinData(id)
-        fetchChartData(id)
-    }, [id])
+    if(isLoading) return <Loader />
 
-    const fetchCoinData = async (id) => {
-        try {
-            const data = await fetchCoin(id);
-            setCoin(data)
-        } catch (err) {
-            console.log("Error fetching Coin Data: ", err)
-        } finally {
-            setIsLoading(false);
-        }
-    };
+    if(!coin) return <ErrorMessage error={error} />
 
-    const fetchChartData = async (id) => {
-        try {
-            const data = await fetchChart(id);
-
-            const formattedData = data.prices.map((price) => ({
-                time: new Date(price[0]).toLocaleDateString("en-US", {
-                    month: "short",
-                    day: "numeric",
-                }),
-                price: price[1].toFixed(2),
-            }))
-
-            setChartData(formattedData);
-        } catch (err) {
-            console.log("Error fetching Coin Data: ", err)
-        } finally {
-            setIsLoading(false);
-        }
-    };
-
-    if (isLoading) {
-        return (
-            <div className="loading">
-                <div className="spinner"/>
-                <p>Loading crypto data...</p>
-            </div>
-        )
-    }
-
-    if (!coin) {
-        return (
-            <div className="app">
-                <div className="no-results">
-                    <p>Coin not found</p>
-                    <button onClick={() => navigate("/")}>Go Back</button>
-                </div>
-            </div>
-        )
-    }
 
     const priceChange = coin.market_data.price_change_percentage_24h || 0;
     const isPositive = priceChange >= 0;
 
     return (
         <div className="app">
-            <header className="header">
-                <div className="header-content">
-                    <div className="logo-section">
-                        <h1>🚀 Crypto Tracker</h1>
-                        <p>Real-time cryptocurrency prices and market data</p>
-                    </div>
-                    <button onClick={() => navigate("/")} className="back-button">
-                        ← Back to List
-                    </button>
-                </div>
-            </header>
-
             <div className="coin-detail">
                 <div className="coin-header">
                     <div className="coin-title">
@@ -124,36 +60,9 @@ const CoinDetail = () => {
                 </div>
                 <div className="chart-section">
                     <h3>Price Chart (7 days)</h3>
-                    <ResponsiveContainer width="100%" height={400}>
-                        <LineChart data={chartData}>
-                            <CartesianGrid strokeDasharray="3 3" stroke="rgba(255, 255, 255, 0.1)"/>
-                            <XAxis
-                                dataKey="time"
-                                stroke="#9ca3af"
-                                style={{fontSize: "12px"}}
-                            />
-                            <YAxis
-                                stroke="#9ca3af"
-                                style={{fontSize: "12px"}}
-                                domain={["auto", "auto"]}
-                            />
-                            <Tooltip
-                                contentStyle={{
-                                    backgroundColor: "rgba(20, 20, 40, 0.95)",
-                                    border: "1px solid rgba(255, 255, 255, 0.1)",
-                                    borderRadius: "8px",
-                                    color: "#e0e0e0",
-                                }}
-                            />
-                            <Line
-                                type="monotone"
-                                dataKey="price"
-                                stroke="#ADD8E6"
-                                strokeWidth={2}
-                                dot={false}
-                            />
-                        </LineChart>
-                    </ResponsiveContainer>
+                    <Suspense fallback={<Loader/>}>
+                        <CoinPriceChart coinId={id}/>
+                    </Suspense>
                 </div>
                 <div className="stats-grid">
                     <div className="stat-card">
@@ -185,9 +94,6 @@ const CoinDetail = () => {
                     </div>
                 </div>
             </div>
-            <footer className="footer">
-                <p>Data provided by CoinGecko API</p>
-            </footer>
         </div>
     );
 };

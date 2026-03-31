@@ -4,6 +4,11 @@ A modern cryptocurrency tracking application built with **Vite** and **React**, 
 
 ---
 
+## 🌐 Live Demo
+[View live site](https://crypto-price-black.vercel.app/)
+
+---
+
 ## 📌 Description
 
 This project was built as a frontend practice application focused on working with real API data and building a clean, responsive single-page application with React.

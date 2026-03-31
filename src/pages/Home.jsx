@@ -1,49 +1,28 @@
-import React, {useEffect, useMemo, useState} from 'react';
-import {fetchCryptos} from "../API/coinGecko.js";
+import React, {useMemo, useState} from 'react';
 import CryptoCard from "../components/CryptoCard.jsx";
 import {filterAndSort} from "../utils/filterAndSort.js";
+import {useFetchCryptos} from "../hooks/useFetchCryptos.js";
+import Loader from "../components/UI/Loader.jsx";
+import ErrorMessage from "../components/UI/ErrorMessage.jsx";
+import {useOutletContext} from "react-router";
 
 const Home = () => {
-
-    const [cryptoList, setCryptoList] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
     const [viewMode, setViewMode] = useState("grid");
     const [sortBy, setSortBy] = useState("market_cap_rank");
-    const [searchQuery, setSearchQuery] = useState("");
-
-    useEffect(() => {
-        fetchCryptoData();
-    }, []);
+    const {searchQuery} = useOutletContext()
+    const {cryptos, isLoading, error} = useFetchCryptos();
 
     const filteredList = useMemo(() => {
-        return filterAndSort(cryptoList, sortBy, searchQuery)
-    }, [cryptoList, sortBy, searchQuery])
+        return filterAndSort(cryptos, sortBy, searchQuery)
+    }, [cryptos, sortBy, searchQuery])
 
-    const fetchCryptoData = async () => {
-        try {
-            const data = await fetchCryptos()
-            setCryptoList(data)
-        } catch (err) {
-            console.log("Error fetching crypto: ", err)
-        } finally {
-            setIsLoading(false);
-        }
-    }
+
+    if(isLoading) return <Loader />
+
+    if(!cryptos.length || error) return <ErrorMessage error={error} />
 
     return (
         <div className="app">
-            <header className="header">
-                <div className="header-content">
-                    <div className="logo-section">
-                        <h1>🚀 Crypto Tracker</h1>
-                        <p>Real-time cryptocurrency prices and market data</p>
-                    </div>
-                    <div className="search-section">
-                        <input type="text" placeholder="Search cryptos..." className="search-input" value={searchQuery}
-                               onChange={(e) => setSearchQuery(e.target.value)}/>
-                    </div>
-                </div>
-            </header>
             <div className="controls">
                 <div className="filter-group">
                     <label>Sort by:</label>
@@ -76,9 +55,6 @@ const Home = () => {
                     ))}
                 </div>
             )}
-            <footer className="footer">
-                <p>Data provided by CoinGecko API</p>
-            </footer>
         </div>
     );
 };
