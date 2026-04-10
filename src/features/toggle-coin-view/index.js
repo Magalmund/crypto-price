@@ -1,1 +1,1 @@
-export { default as CoinViewToggle } from "./UI/CoinViewToggle.jsx";
+export { default as CoinViewToggle } from "./ui/CoinViewToggle.jsx";

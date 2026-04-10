@@ -1,1 +1,1 @@
-export { default as SortCoinsSelect } from "./UI/SortCoinsSelect.jsx";
+export { default as SortCoinsSelect } from "./ui/SortCoinsSelect.jsx";
