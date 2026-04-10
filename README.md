@@ -1,17 +1,87 @@
 # 📊 Crypto Price Tracker
 
-A modern cryptocurrency tracking application built with **Vite** and **React**, featuring live market data, search and sorting, coin detail pages, and chart visualization using the CoinGecko API.
+A fast, responsive cryptocurrency dashboard built with React and Vite.  
+Track the market, compare coins, and explore detailed price data through a clean two-page interface powered by the CoinGecko API.
+
+## Live Demo
+
+[Open the app](https://crypto-price-black.vercel.app/)
+
+## 📌 Why This Project
+
+Crypto Price Tracker is a frontend-focused project built around real API data and practical UI patterns.  
+It combines data fetching, routing, search, sorting, conditional rendering, charting, and error handling in a compact but scalable architecture.
 
 ---
 
-## 🌐 Live Demo
-[View live site](https://crypto-price-black.vercel.app/)
+## ✨ Key Features
+
+- Browse the top 100 cryptocurrencies by market cap
+- Search by coin name or symbol
+- Sort by rank, name, price, 24h change, and market cap
+- Toggle between grid and list views
+- Open a dedicated page for each coin
+- View a 7-day price chart
+- See loading, error, and retry states
+- Use the app comfortably on desktop and mobile
 
 ---
 
-## 📌 Description
+## 🛠Tech Stack
 
-This project was built as a frontend practice application focused on working with real API data and building a clean, responsive single-page application with React.
+- React 19
+- Vite
+- React Router
+- Recharts
+- CoinGecko API
+- JavaScript
+- CSS Modules
+
+---
+
+## 📄 Pages
+
+### 🔹 Home
+
+The home page provides a quick market overview and lets users explore coins efficiently.
+
+It includes:
+
+- searchable market list
+- sorting controls
+- grid/list layout switch
+- coin cards with price, rank, volume, and market cap
+
+### 🔹 Coin Details
+
+The details page focuses on a single asset and surfaces its key market information.
+
+It includes:
+
+- coin identity and rank
+- current price
+- 24h price change
+- 24h high and low
+- market cap
+- trading volume
+- circulating supply
+- total supply
+- 7-day chart
+
+---
+
+## ✉️ Routing
+
+```text
+/           Home page
+/coin/:id   Coin details page
+ ```
+
+---
+
+## 📁 Architecture
+
+The project uses a layered, feature-oriented structure to keep UI, business logic, and reusable parts separated.
 
 - Fetch and display live cryptocurrency market data
 - Build a multi-page experience using React Router
@@ -20,115 +90,57 @@ This project was built as a frontend practice application focused on working wit
 - Create reusable UI components and utility functions
 - Organize a React project with a simple and maintainable structure
 
----
-
-## 🎯 Focus Areas
-
-Frontend practice project focused on:
-
-- React component architecture
-- State management with Hooks
-- API integration with `fetch`
-- Conditional rendering and loading states
-- Client-side filtering and sorting
-- Responsive UI development
-- Data formatting and presentation
-- Clean project structure
-
----
-
-## 🧠 Architecture Overview
-
-### 🔹 Home Page
-
-The main page is responsible for:
-
-- Fetching cryptocurrency market data
-- Displaying coins in `grid` and `list` view
-- Searching by coin name or symbol
-- Sorting by rank, name, price, 24h change, and market cap
-- Auto-refreshing data every 30 seconds
-
----
-
-### 🔹 Coin Detail Page
-
-The detail page includes:
-
-- Coin information and market stats
-- Current price and 24h performance
-- 24h high and low values
-- 7-day price chart using `Recharts`
-- Navigation back to the main list
-
----
-
-### 🔹 Data Layer
-
-The application:
-
-- Uses a separate API module for CoinGecko requests
-- Splits logic into reusable utility functions
-- Formats prices and market capitalization values for better UX
-- Keeps page components focused on rendering and UI behavior
-
----
-
-### 👨‍💻 Main Goals
-
-Frontend practice project focused on:
-
-- Working with asynchronous API requests
-- Understanding React rendering and state updates
-- Building reusable and readable components
-- Structuring a small real-world style frontend app
-- Practicing data-driven UI development
-
----
-
-## 🛠 Tech Stack
-
-- **Vite**
-- **React**
-- **React Router**
-- **Recharts**
-- **CoinGecko API**
-- JavaScript (ES6+)
-- CSS3
-
----
-
-## ✨ Features
-
-- Live cryptocurrency market data
-- Search by name and symbol
-- Sorting by different market parameters
-- Grid and list layout toggle
-- Detailed coin page
-- 7-day chart visualization
-- Auto-refresh every 30 seconds
-- Responsive design for desktop and mobile
-
----
-
-## 📁 Project Structure
 
 ```text
 src/
-  API/
-    coinGecko.js
-  components/
-    CryptoCard.jsx
+  app/
+    layout/
+    router/
+    styles/
   pages/
-    Home.jsx
-    CoinDetail.jsx
-  utils/
-    filterAndSort.js
-    formatter.js
-  App.jsx
-  main.jsx
-  index.css
+    home/
+    coin-detail/
+  widgets/
+    header/
+    footer/
+    market-controls/
+  features/
+    search-coins/
+    sort-coins/
+    toggle-coin-view/
+  entities/
+    coin/
+      api/
+      lib/
+      model/
+      ui/
+  shared/
+    lib/
+    ui/
 ```
+---
+
+## 🔹Layer Overview
+
+- `app` contains application setup, layout, routing, and global styles
+- `pages` contains route-level screens
+- `widgets` contains composed UI sections
+- `features` contains focused user interactions
+- `entities` contains coin-related domain logic
+- `shared` contains reusable UI and utilities
+
+---
+
+---
+
+## 🔹Data Source
+The app uses the CoinGecko API for all market data.
+
+Endpoints used:
+
+- `coins/markets` for the main list
+- `coins/{id}` for coin details
+- `coins/{id}/market_chart` for 7-day chart data
 
 ---
 
@@ -158,3 +170,19 @@ The app runs at:
 http://localhost:5173/
 ```
 
+---
+
+## 🔹 Implementation Notes
+- Detail page and chart are lazy-loaded
+- Search input is optimized with deferred rendering
+- API errors are handled with user-friendly retry states
+- The app depends on CoinGecko API availability and rate limits
+
+---
+
+## 🔹 Future Improvements
+- Add favorites or watchlist support
+- Add pagination or infinite scrolling
+- Add more chart ranges
+- Add currency selection
+- Add unit and integration tests

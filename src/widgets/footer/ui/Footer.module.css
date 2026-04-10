@@ -1,0 +1,14 @@
+/* Footer */
+.footer {
+    background: rgba(20, 20, 40, 0.4);
+    backdrop-filter: blur(20px);
+    padding: 2rem;
+    text-align: center;
+    margin-top: 3rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.p {
+    color: #9ca3af;
+    font-weight: 500;
+}

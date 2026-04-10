@@ -1,0 +1,32 @@
+.filterGroup {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.label {
+    color: #e0e0e0;
+    font-weight: 600;
+}
+
+.select {
+    padding: 0.75rem 1.25rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.select:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.select:focus {
+    outline: none;
+    border-color: #add8e6;
+    box-shadow: 0 0 0 3px rgba(173, 216, 230, 0.2);
+}

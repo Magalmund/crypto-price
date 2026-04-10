@@ -1,0 +1,35 @@
+.viewToggle {
+    justify-content: center;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.button {
+    padding: 0.75rem 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    color: #e0e0e0;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.button:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.button.active {
+    background: #add8e6;
+    color: #010203;
+    border-color: transparent;
+    box-shadow: 0 4px 15px rgba(173, 216, 230, 0.3);
+}
+
+@media (max-width: 768px) {
+    .viewToggle {
+        display: none;
+    }
+}

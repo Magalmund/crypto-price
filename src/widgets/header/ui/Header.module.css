@@ -1,0 +1,62 @@
+.header {
+    backdrop-filter: blur(20px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    padding: 2rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.headerContent {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.logoSection {
+
+}
+
+.h1 {
+    font-size: 2.5rem;
+    background: #add8e6;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.p {
+    color: #a0a0b0;
+    font-size: 0.95rem;
+}
+
+.searchSection {
+    flex: 1;
+    max-width: 500px;
+}
+
+
+
+
+@media (max-width: 768px) {
+    .headerContent {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .searchSection {
+        max-width: 100%;
+    }
+
+    .h1 {
+        font-size: 2rem;
+    }
+}

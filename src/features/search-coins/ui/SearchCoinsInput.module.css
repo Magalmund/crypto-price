@@ -1,0 +1,22 @@
+.searchInput {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+    backdrop-filter: blur(10px);
+}
+
+.searchInput::placeholder {
+    color: #6b6b7a;
+}
+
+.searchInput:focus {
+    outline: none;
+    border-color: #add8e6;
+    box-shadow: 0 0 0 3px rgba(173, 216, 230, 0.2);
+    background: rgba(255, 255, 255, 0.08);
+}
