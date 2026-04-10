@@ -27,7 +27,7 @@ It combines data fetching, routing, search, sorting, conditional rendering, char
 
 ---
 
-## 🛠Tech Stack
+## 🛠 Tech Stack
 
 - React 19
 - Vite
@@ -120,7 +120,7 @@ src/
 ```
 ---
 
-## 🔹Layer Overview
+## 🔹 Layer Overview
 
 - `app` contains application setup, layout, routing, and global styles
 - `pages` contains route-level screens
@@ -131,9 +131,7 @@ src/
 
 ---
 
----
-
-## 🔹Data Source
+## 🔹 Data Source
 The app uses the CoinGecko API for all market data.
 
 Endpoints used:
