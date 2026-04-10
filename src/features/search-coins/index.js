@@ -1,1 +1,1 @@
-export { default as SearchCoinsInput } from "./UI/SearchCoinsInput.jsx";
+export { default as SearchCoinsInput } from "./ui/SearchCoinsInput.jsx";
