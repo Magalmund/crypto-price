@@ -27,27 +27,29 @@ const CoinPriceChart = ({coinId}) => {
                 <CartesianGrid strokeDasharray="3 3" stroke="rgba(255, 255, 255, 0.1)"/>
                 <XAxis
                     dataKey="time"
-                    stroke="#9ca3af"
+                    stroke="#7f7f7f"
                     style={{fontSize: "12px"}}
                 />
                 <YAxis
-                    stroke="#9ca3af"
+                    stroke="#7f7f7f"
                     style={{fontSize: "12px"}}
                     domain={["auto", "auto"]}
                 />
                 <Tooltip
                     contentStyle={{
-                        backgroundColor: "rgba(20, 20, 40, 0.95)",
-                        border: "1px solid rgba(255, 255, 255, 0.1)",
-                        borderRadius: "8px",
-                        color: "#e0e0e0",
+                        background: "linear-gradient(145deg, #171717, #101010)",
+                        border: "1px solid rgba(255, 255, 255, 0.04)",
+                        borderRadius: "18px",
+                        color: "#f5f5f5",
+                        boxShadow: "12px 12px 24px rgba(0, 0, 0, 0.68), -12px -12px 24px rgba(28, 28, 28, 0.72)",
                     }}
+                    labelStyle={{color: "#9a9a9a"}}
                 />
                 <Line
                     type="monotone"
                     dataKey="price"
-                    stroke="#ADD8E6"
-                    strokeWidth={2}
+                    stroke="#f1f1f1"
+                    strokeWidth={2.5}
                     dot={false}
                 />
             </LineChart>

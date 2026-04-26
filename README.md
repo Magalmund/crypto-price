@@ -5,7 +5,7 @@ Track the market, compare coins, and explore detailed price data through a clean
 
 ## Live Demo
 
-[Open the app](https://crypto-price-black.vercel.app/)
+[Open the app](https://crypto-price-neo.vercel.app/)
 
 ## 📌 Why This Project
 

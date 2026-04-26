@@ -1,35 +1,39 @@
 .viewToggle {
-    justify-content: center;
     display: flex;
-    gap: 0.5rem;
+    justify-content: center;
+    gap: 0.65rem;
+    padding: 0.5rem;
+    border-radius: 20px;
+    background: linear-gradient(145deg, #161616, #101010);
+    box-shadow: 10px 10px 22px rgba(0, 0, 0, 0.62), -10px -10px 22px rgba(30, 30, 30, 0.68);
+    border: 1px solid rgba(255, 255, 255, 0.04);
 }
 
 .button {
-    padding: 0.75rem 1.5rem;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.05);
-    color: #e0e0e0;
-    font-weight: 600;
+    padding: 0.8rem 1.35rem;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    border-radius: 14px;
+    background: linear-gradient(145deg, #191919, #111111);
+    color: #a4a4a4;
+    font-weight: 700;
     cursor: pointer;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
+    transition: transform 0.24s ease, box-shadow 0.24s ease, color 0.24s ease, background 0.24s ease;
+    box-shadow: 8px 8px 18px rgba(0, 0, 0, 0.58), -8px -8px 18px rgba(27, 27, 27, 0.72);
 }
 
 .button:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-1px);
+    color: #f5f5f5;
 }
 
-.button.active {
-    background: #add8e6;
-    color: #010203;
-    border-color: transparent;
-    box-shadow: 0 4px 15px rgba(173, 216, 230, 0.3);
+.active {
+    background: linear-gradient(145deg, #0f0f0f, #181818);
+    color: #ffffff;
+    box-shadow: inset 7px 7px 14px rgba(0, 0, 0, 0.78), inset -7px -7px 14px rgba(31, 31, 31, 0.68);
 }
 
 @media (max-width: 768px) {
     .viewToggle {
-        display: none;
+        width: 100%;
     }
 }

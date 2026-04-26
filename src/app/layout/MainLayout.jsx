@@ -12,7 +12,7 @@ const MainLayout = () => {
     const isHomePage = location.pathname === "/";
 
     return (
-        <>
+        <div className="app-shell">
             <Header
                 isHomePage={isHomePage}
                 searchQuery={searchQuery}
@@ -21,17 +21,16 @@ const MainLayout = () => {
 
             />
 
-            <main>
+            <main className="main-content">
                 <Outlet context={{searchQuery: deferredQuery}}>
 
                 </Outlet>
             </main>
 
             <Footer/>
-        </>
+        </div>
     );
 };
 
 export default MainLayout;
-
 

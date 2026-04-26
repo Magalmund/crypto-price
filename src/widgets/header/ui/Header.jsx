@@ -7,8 +7,9 @@ const Header = ({isHomePage, searchQuery, setSearchQuery, onBack}) => {
         <header className={styles.header}>
             <div className={styles.headerContent}>
                 <div className={styles.logoSection}>
-                    <h1 className={styles.h1}>🚀 Crypto Tracker</h1>
-                    <p className={styles.p}>Real-time cryptocurrency prices and market data</p>
+                    <span className={styles.eyebrow}>Dark Neumorphic Dashboard</span>
+                    <h1 className={styles.h1}>Crypto Tracker</h1>
+                    <p className={styles.p}>Real-time cryptocurrency prices with a tactile black and graphite interface.</p>
                 </div>
 
                 {isHomePage ? (
@@ -17,7 +18,7 @@ const Header = ({isHomePage, searchQuery, setSearchQuery, onBack}) => {
                     </div>
                 ) : (
                     <button onClick={onBack} className="back-button">
-                        ← Back to List
+                        ← Back to Market
                     </button>
                 )}
             </div>

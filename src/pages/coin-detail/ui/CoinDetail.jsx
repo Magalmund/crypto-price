@@ -62,12 +62,12 @@ const CoinDetail = () => {
                                 {formatPrice(coin.market_data.high_24h.usd)}
                             </span>
                             </div>
-                        </div>
-                        <div className="price-range">
-                            <span className="range-label">24h Low</span>
-                            <span className="range-value">
+                            <div className="price-range">
+                                <span className="range-label">24h Low</span>
+                                <span className="range-value">
                             {formatPrice(coin.market_data.low_24h.usd)}
                         </span>
+                            </div>
                         </div>
                     </div>
                     <div className="chart-section">
