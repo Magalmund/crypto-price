@@ -1,7 +1,7 @@
 import React, {useDeferredValue, useState} from 'react';
 import {Outlet, useLocation, useNavigate} from "react-router";
-import {Header} from "../../widgets/header/index.js";
-import {Footer} from "../../widgets/footer/index.js";
+import {Header} from "@/widgets/header/index.js";
+import {Footer} from "@/widgets/footer/index.js";
 
 const MainLayout = () => {
     const location = useLocation();
@@ -33,4 +33,3 @@ const MainLayout = () => {
 };
 
 export default MainLayout;
-

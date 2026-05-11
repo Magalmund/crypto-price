@@ -1,11 +1,11 @@
 import React, {lazy, Suspense} from 'react';
 import {useParams} from "react-router";
-import {formatMarketCap, formatPrice, useFetchCoin} from "../../../entities/coin";
-import { Loader } from "../../../shared/ui/loader";
-import { ErrorMessage } from "../../../shared/ui/error";
+import {formatMarketCap, formatPrice, useFetchCoin} from "@/entities/coin";
+import { Loader } from "@/shared/ui/loader";
+import { ErrorMessage } from "@/shared/ui/error";
 
 const CoinPriceChart = lazy(() =>
-    import("../../../entities/coin").then((module) => ({
+    import("@/entities/coin").then((module) => ({
         default: module.CoinPriceChart,
     }))
 );

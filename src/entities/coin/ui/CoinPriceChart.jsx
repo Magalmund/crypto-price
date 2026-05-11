@@ -1,8 +1,8 @@
 import React from "react";
 import {CartesianGrid, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis} from "recharts";
-import {useFetchPriceChart} from "../model/useFetchPriceChart.js";
-import ErrorMessage from "../../../shared/ui/error/ErrorMessage.jsx";
-import Loader from "../../../shared/ui/loader/Loader.jsx";
+import {useFetchPriceChart} from "@/entities/coin/model/useFetchPriceChart.js";
+import ErrorMessage from "@/shared/ui/error/ErrorMessage.jsx";
+import Loader from "@/shared/ui/loader/Loader.jsx";
 
 
 const CoinPriceChart = ({coinId}) => {

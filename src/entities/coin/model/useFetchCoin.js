@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import {fetchCoin} from "../api/coinGecko.js";
+import {fetchCoin} from "@/entities/coin/api/coinGecko.js";
 
 export const useFetchCoin = (coinId) => {
     const [coin, setCoin] = useState(null);

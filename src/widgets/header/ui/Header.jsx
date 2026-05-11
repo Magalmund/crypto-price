@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Header.module.css';
-import { SearchCoinsInput } from "../../../features/search-coins";
+import { SearchCoinsInput } from "@/features/search-coins";
 
 const Header = ({isHomePage, searchQuery, setSearchQuery, onBack}) => {
     return (

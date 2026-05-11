@@ -1,10 +1,10 @@
 import React, {useMemo, useState} from 'react';
-import {filterAndSort} from "../../../shared/lib/filtering/filterAndSort.js";
+import {filterAndSort} from "@/shared/lib/filtering/filterAndSort.js";
 import {useOutletContext} from "react-router";
-import { CryptoCard, useFetchCryptos } from "../../../entities/coin";
-import { MarketControls } from "../../../widgets/market-controls";
-import { Loader } from "../../../shared/ui/loader";
-import { ErrorMessage } from "../../../shared/ui/error";
+import { CryptoCard, useFetchCryptos } from "@/entities/coin";
+import { MarketControls } from "@/widgets/market-controls";
+import { Loader } from "@/shared/ui/loader";
+import { ErrorMessage } from "@/shared/ui/error";
 
 const Home = () => {
     const [viewMode, setViewMode] = useState("grid");

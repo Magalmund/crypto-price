@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
-import {fetchChart} from "../api/coinGecko.js";
-import {mapPriceChart} from "./mapPriceChart.js";
+import {fetchChart} from "@/entities/coin/api/coinGecko.js";
+import {mapPriceChart} from "@/entities/coin/model/mapPriceChart.js";
 
 export const useFetchPriceChart = (coinId) => {
     const [priceChart, setPriceChart] = useState([]);

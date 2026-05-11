@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import {fetchCryptos} from "../api/coinGecko.js";
+import {fetchCryptos} from "@/entities/coin/api/coinGecko.js";
 
 export const useFetchCryptos = () => {
     const [cryptos, setCryptos] = useState([]);
